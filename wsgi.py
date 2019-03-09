@@ -1,6 +1,5 @@
 # -- coding: utf-8 --
 
-import time
 from board_test import *
 
 @app.route('/',methods=['GET','POST'])
@@ -66,8 +65,6 @@ def logout():
     else:
         return alert_replace('잘못된 접근입니다','/')
 
-
-
 @app.route('/main', methods=['GET'])
 def main():
     if 'username' in session:
@@ -99,7 +96,6 @@ def post_del(idx):
        return redirect(url_for('main'))
     else:
        return alert_go('권한이 없습니다', -1)
-
 
 @app.route('/main/view/<idx>', methods=['GET'])
 def post_view(idx):
@@ -144,9 +140,7 @@ def check_space(data):
              r[name] = fo(name)
     return r
 
-
-
 if __name__ == "__main__":
 #    db.drop_all()
-    db.create_all()
+#    db.create_all()
     app.run(host='0.0.0.0', port=5000)
